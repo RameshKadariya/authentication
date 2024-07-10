@@ -4,4 +4,9 @@
     <string name="emailadrress">EmailAdrress</string>
     <string name="Password">password</string>
     <string name="enter">Enter</string>
+    <string name="enter_your_credential_here">Enter Your Credential Here</string>
+    <string name="loginbtn">Login</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_confirm_password">Enter Confirm Password</string>
 </resources>
