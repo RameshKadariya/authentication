@@ -8,25 +8,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="#D8D5D2"
-
+    android:background="@drawable/login"
     tools:context=".loginPage">
 
 
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@color/black"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"/>
+
     <TextView
         android:text="@string/enter_your_credential_here"
         android:textSize="30sp"
+        android:textColor="#0509EA"
         android:gravity="center"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="269dp"
+        android:layout_marginLeft="85dp"
+        android:src="@drawable/login1" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -43,7 +45,7 @@
         android:layout_height="wrap_content" >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/password"
-            android:hint="@string/Password"
+            android:hint="@string/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -65,11 +67,12 @@
         android:id="@+id/txt_forgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#FF1100"
+        android:textColor="#4FFF3B"
         android:text="@string/forgot_password"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:textSize="32dp"
+        android:textSize="45dp"
+        android:textStyle="bold"
         />
     <LinearLayout
         android:layout_width="match_parent"
@@ -81,18 +84,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="if you don't have signup ?"
+            android:text="Don't have account ?"
             android:layout_marginRight="10dp"
             android:textSize="22sp"
             android:textColor="@color/black"
             tools:ignore="HardcodedText" />
 
         <TextView
-            android:id="@+id/txt_signin"
+            android:id="@+id/txt_signup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-
             android:text="Sign Up "
             android:textColor="#082AE4"
             android:textSize="28dp"

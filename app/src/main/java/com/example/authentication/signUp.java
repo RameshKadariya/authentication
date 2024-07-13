@@ -74,5 +74,14 @@ public class signUp extends AppCompatActivity {
                         });
             }
         });
+
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent signinintent = new Intent(signUp.this, loginPage.class);
+                startActivity(signinintent);
+
+            }
+        });
     }
 }

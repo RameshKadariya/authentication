@@ -8,8 +8,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="#D8D5D2"
+    android:background="@drawable/sign_in"
     tools:context=".signUp">
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,7 +18,16 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="Signup Page"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         android:textSize="30sp" />
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/signup" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -82,7 +92,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="already sign up?"
+            android:text="Already sign up?"
             android:layout_marginRight="10dp"
             android:textSize="22sp"
             android:textColor="@color/black"/>
@@ -93,7 +103,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Login"
-            android:textColor="#082AE4"
-            android:textSize="32sp" />
+            android:textColor="#08E40C"
+            android:textSize="32sp"
+            android:textStyle="bold"/>
+
     </LinearLayout>
 </LinearLayout>
