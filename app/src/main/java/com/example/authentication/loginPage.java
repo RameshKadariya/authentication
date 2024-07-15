@@ -54,10 +54,15 @@ public class loginPage extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(loginPage.this, "Signup is Completed", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                                    if(firebaseAuth.getCurrentUser().isEmailVerified()){
+                                        Toast.makeText(loginPage.this, "Signup is Completed", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                    else {
+                                        Toast.makeText(loginPage.this,"Please verify your email",Toast.LENGTH_SHORT).show();
+                                    }
                                 } else {
                                     Toast.makeText(loginPage.this, "Signup Failed", Toast.LENGTH_SHORT).show();
                                 }

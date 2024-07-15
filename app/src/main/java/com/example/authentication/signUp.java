@@ -49,8 +49,8 @@ public class signUp extends AppCompatActivity {
                     Toast.makeText(signUp.this, "Please Enter Password", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (Password.length() <= 6) {
-                    Toast.makeText(signUp.this, "Password must be at least 6 characters long", Toast.LENGTH_SHORT).show();
+                if (Password.length() <= 3) {
+                    Toast.makeText(signUp.this, "Password must be at least 4 characters long", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (!Cpassword.equals(Password)) {
@@ -63,12 +63,21 @@ public class signUp extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(signUp.this, "Signup is Completed", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                                    firebaseAuth.getCurrentUser().sendEmailVerification()
+                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task) {
+                                                    if (task.isSuccessful()) {
+                                                        Toast.makeText(signUp.this, "Signup successful. Please verify your email address.", Toast.LENGTH_SHORT).show();
+
+                                                    } else {
+                                                        Toast.makeText(signUp.this, "Failed to send verification email.", Toast.LENGTH_SHORT).show();
+                                                    }
+                                                }
+                                            });
                                 } else {
-                                    Toast.makeText(signUp.this, "Signup Failed", Toast.LENGTH_SHORT).show();
+                                    String errorMessage = task.getException().getMessage();
+                                    Toast.makeText(signUp.this, "Signup Failed: " + errorMessage, Toast.LENGTH_LONG).show();
                                 }
                             }
                         });
@@ -80,7 +89,6 @@ public class signUp extends AppCompatActivity {
             public void onClick(View v) {
                 Intent signinintent = new Intent(signUp.this, loginPage.class);
                 startActivity(signinintent);
-
             }
         });
     }
