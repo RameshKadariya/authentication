@@ -78,5 +78,13 @@ public class loginPage extends AppCompatActivity {
                 startActivity(signupintent);
             }
         });
+
+        forgotpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent forgotpasswordIntent = new Intent(loginPage.this,forgotPassword.class);
+                startActivity(forgotpasswordIntent);
+            }
+        });
     }
 }
