@@ -8,17 +8,18 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@drawable/login"
+    android:background="@drawable/img_1"
     tools:context=".loginPage">
 
 
 
     <TextView
-        android:text="@string/enter_your_credential_here"
-        android:textSize="30sp"
-        android:textColor="#0509EA"
+        android:text="DIGITAL SUITCASE "
+        android:textSize="35sp"
+        android:textColor="#050505"
         android:gravity="center"
         android:textStyle="bold"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -60,6 +61,7 @@
         android:layout_height="70dp"
         android:text="@string/loginbtn"
         android:textSize="32sp"
+        android:backgroundTint="#4CAF50"
         android:layout_marginTop="20dp"
         />
 
@@ -67,11 +69,11 @@
         android:id="@+id/txt_forgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#4FFF3B"
+        android:textColor="#E9554B"
         android:text="@string/forgot_password"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:textSize="45dp"
+        android:textSize="25dp"
         android:textStyle="bold"
         />
     <LinearLayout
@@ -86,7 +88,7 @@
             android:layout_height="wrap_content"
             android:text="Don't have account ?"
             android:layout_marginRight="10dp"
-            android:textSize="22sp"
+            android:textSize="20sp"
             android:textColor="@color/black"
             tools:ignore="HardcodedText" />
 
@@ -96,8 +98,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Sign Up "
-            android:textColor="#082AE4"
-            android:textSize="28dp"
+            android:textColor="#08730C"
+            android:textStyle="bold"
+
+            android:textSize="48dp"
             tools:ignore="RtlHardcoded" />
     </LinearLayout>
 </LinearLayout>

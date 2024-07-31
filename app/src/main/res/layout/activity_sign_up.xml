@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="10dp"
-    android:background="@drawable/sign_in"
+    android:background="@drawable/newsignup"
     tools:context=".signUp">
 
 
@@ -18,16 +18,17 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:text="Signup Page"
-        android:textColor="@color/white"
+        android:textColor="#7B8707"
         android:textStyle="bold"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/signup" />
+        android:src="@drawable/signup"
+        android:layout_marginTop="10dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -79,6 +80,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:text="Signup"
+        android:backgroundTint="#E2B634"
         android:textSize="32sp"
         android:layout_marginTop="20dp" />
 
@@ -103,9 +105,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="Login"
-            android:textColor="#08E40C"
-            android:textSize="32sp"
-            android:textStyle="bold"/>
+            android:textColor="#0EA011"
+            android:textSize="40sp"
+            android:textStyle="bold|italic"/>
 
     </LinearLayout>
 </LinearLayout>
