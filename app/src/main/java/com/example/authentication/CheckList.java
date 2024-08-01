@@ -1,6 +1,8 @@
 package com.example.authentication;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -77,6 +80,7 @@ public class CheckList extends AppCompatActivity {
         return true;
     }
 
+
     @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -89,8 +93,75 @@ public class CheckList extends AppCompatActivity {
             startActivityForResult(intent, 101);
             return true;
         }
+        else if (item.getItemId()==R.id.btnCustomList){
+            intent.putExtra(MyConstants.HEADER_SMALL,MyConstants.MY_LIST_CAMEL_CASE);
+            intent.putExtra(MyConstants.SHOW_SMALL,MyConstants.TRUE_STRING);
+            startActivity(intent);
+            return true;
+        } else if (item.getItemId()==R.id.btnDeleteDefault) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Delete Default")
+                    .setMessage("Are you sure?")
+                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+                            appData.persistDataByCategory(header,true);
+                            itemsList = database.mainDao().getAll(header);
+                            updateRecycler(itemsList);
 
-        return super.onOptionsItemSelected(item);
+
+                        }
+                    }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    }).setIcon(R.drawable.alert)
+                    .show();
+            return true;
+        }
+        else if (item.getItemId()==R.id.btnReset){
+            new AlertDialog.Builder(this)
+                    .setTitle("Reset to Defaut")
+                    .setMessage("Are You Sure")
+                    .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+                            appData.persistDataByCategory(header,false);
+                            itemsList = database.mainDao().getAll(header);
+                            updateRecycler(itemsList);
+
+                        }
+                    }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int i) {
+
+                        }
+                    }).setIcon(R.drawable.alert)
+                    .show();
+            return true;
+
+        } else if (item.getItemId() == R.id.btnAboutUs)  {
+            intent=new Intent(this,AboutMe.class);
+            startActivity(intent);
+            return true;
+
+        }
+        else if (item.getItemId()==R.id.btnExit){
+            this.finishAffinity();
+            return true;
+        }
+        else
+            return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 101) {
+            itemsList=database.mainDao().getAll(header);
+            updateRecycler(itemsList);
+        }
     }
 
     @Override
